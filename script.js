@@ -1,9 +1,9 @@
 console.log("sri-laksh", "im from webview"); // Wayne is coming!!!
 let webviewMessage = "welcome";
-window.addEventListener("message", (message) => {
-  webviewMessage = message.data;
-  console.log(message.data); // Wayne is coming!!!
-});
+// window.addEventListener("message", (message) => {
+//   webviewMessage = message.data;
+//   console.log(message.data); // Wayne is coming!!!
+// });
 // window.addEventListener("message", (message) => {
 //   // console.log("sri-laksh", message.data); // Wayne is coming!!!
 //   webviewMessage = message.data;
@@ -18,7 +18,6 @@ const newQuoteBtnElement = document.getElementById("new_quote");
 const loaderElement = document.getElementById("loader");
 const lakshElement = document.getElementById("webview");
 
-lakshElement.textContent = webviewMessage;
 let quotesList = [];
 // FUNCTIONS
 //FETCH QUOTES LIST FROM API
@@ -58,6 +57,10 @@ function makeTweet() {
   const tweetUrl = `https://twitter.com/intent/tweet?text=${quoteTextElement.textContent} - ${authorTextElement.textContent}`;
   window.open(tweetUrl, "_blank");
 }
+// SET VAR WHEN WEBVIEW COMMUNICATES
+function communication(data) {
+  lakshElement.textContent = data;
+}
 //LOADER SHOW
 function loading() {
   loaderElement.hidden = false;
@@ -70,6 +73,11 @@ function complete() {
 //  EVENT LISTENERS
 newQuoteBtnElement.addEventListener("click", makeQuote);
 twitterBtnElement.addEventListener("click", makeTweet);
+window.addEventListener("message", (message) => communication(message.data));
+// window.addEventListener("message", (message) => {
+//   webviewMessage = message.data;
+//   console.log(message.data); // Wayne is coming!!!
+// });
 
 //ON LOAD
 // loading()
