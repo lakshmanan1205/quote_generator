@@ -2,7 +2,7 @@ console.log("sri-laksh", "im from webview"); // Wayne is coming!!!
 let webviewMessage = "welcome";
 window.addEventListener("message", (message) => {
   // console.log("sri-laksh", message.data); // Wayne is coming!!!
-  webviewMessage = message;
+  webviewMessage = message.data;
   window.ReactNativeWebView.postMessage("Client received data");
 });
 //VARIABLES
