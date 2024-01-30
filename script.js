@@ -1,6 +1,8 @@
 console.log("sri-laksh", "im from webview"); // Wayne is coming!!!
+let webviewMessage = "welcome";
 window.addEventListener("message", (message) => {
-  console.log("sri-laksh", message.data); // Wayne is coming!!!
+  // console.log("sri-laksh", message.data); // Wayne is coming!!!
+  webviewMessage = message;
   window.ReactNativeWebView.postMessage("Client received data");
 });
 //VARIABLES
@@ -10,7 +12,9 @@ const authorTextElement = document.getElementById("author");
 const twitterBtnElement = document.getElementById("twitter");
 const newQuoteBtnElement = document.getElementById("new_quote");
 const loaderElement = document.getElementById("loader");
+const lakshElement = document.getElementById("webview");
 
+lakshElement.textContent = webviewMessage;
 let quotesList = [];
 // FUNCTIONS
 //FETCH QUOTES LIST FROM API
