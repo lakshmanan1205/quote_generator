@@ -1,3 +1,4 @@
+console.log("sri-laksh", "im from webview"); // Wayne is coming!!!
 window.addEventListener("message", (message) => {
   console.log("sri-laksh", message.data); // Wayne is coming!!!
   window.ReactNativeWebView.postMessage("Client received data");
