@@ -64,11 +64,10 @@ function getUrlParams(e) {
   const url_string = window.location.href;
   const url = new URL(url_string);
   const data = url.searchParams.get("data");
-  console.log(typeof data);
-  console.log(decodeURIComponent(data));
   const decoded = decodeURIComponent(data);
-  const { decodedData } = JSON.parse(decoded);
-  const { firstName } = decodedData;
+  const decodedData = JSON.parse(decoded);
+  const { firstName } = decodedData.data;
+  // webviewElement.textContent = firstName || "User";
   webviewElement.textContent = firstName || "User";
 }
 //  EVENT LISTENERS
