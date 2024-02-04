@@ -69,7 +69,7 @@ function getUrlParams(e) {
   const decoded = decodeURIComponent(data);
   const { decodedData } = JSON.parse(decoded);
   const { firstName } = decodedData;
-  webviewElement.textContent = firstName;
+  webviewElement.textContent = firstName || "User";
 }
 //  EVENT LISTENERS
 newQuoteBtnElement.addEventListener("click", makeQuote);
