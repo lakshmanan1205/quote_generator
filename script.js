@@ -5,6 +5,7 @@ const authorTextElement = document.getElementById("author");
 const twitterBtnElement = document.getElementById("twitter");
 const newQuoteBtnElement = document.getElementById("new_quote");
 const loaderElement = document.getElementById("loader");
+const webviewElement = document.getElementById("webview");
 
 let quotesList = [];
 // FUNCTIONS
@@ -79,3 +80,5 @@ const url = new URL(url_string);
 const data = url.searchParams.get("data");
 console.log(typeof data);
 console.log(decodeURIComponent(data));
+const decodeduser = decodeURIComponent(data);
+webviewElement.textContent = decodeduser.firstName;
