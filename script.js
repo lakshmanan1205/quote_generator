@@ -80,6 +80,10 @@ const url = new URL(url_string);
 const data = url.searchParams.get("data");
 console.log(typeof data);
 console.log(decodeURIComponent(data));
-const decodeduser = decodeURIComponent(data);
+const { firstName } = decodeURIComponent(data);
+// const { firstName } = decodeURIComponent(
+//   "%7B%22status%22%3A%22success%22%2C%22data%22%3A%7B%22id%22%3A1%2C%22firstName%22%3A%22lakshmanan%22%2C%22lastName%22%3A%22moorthy%22%2C%22usertype%22%3A%22Customer%22%2C%22username%22%3A%22laksh%40yopmail.com%22%2C%22mobileNo%22%3A%229498398765%22%2C%22expoToken%22%3Anull%2C%22status%22%3Atrue%2C%22createdAt%22%3A%222024-01-29T18%3A10%3A01.000Z%22%2C%22updatedAt%22%3A%222024-01-29T18%3A10%3A01.000Z%22%2C%22token%22%3A%22eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTcwNzA0NzQxOCwiZXhwIjoxNzA5NjM5NDE4fQ.VtjuIETD2bgpwlA2-hnFqm4I6ywWOhGnnx9Ir-QJhjM%22%2C%22authenticated%22%3Atrue%7D%7D"
+// );
 // webviewElement.textContent = decodeduser.firstName;
-webviewElement.textContent = data;
+console.log("laksh", laksh);
+webviewElement.textContent = firstName;
