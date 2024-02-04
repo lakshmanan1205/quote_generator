@@ -1,14 +1,3 @@
-console.log("sri-laksh", "im from webview"); // Wayne is coming!!!
-let webviewMessage = "welcome";
-// window.addEventListener("message", (message) => {
-//   webviewMessage = message.data;
-//   console.log(message.data); // Wayne is coming!!!
-// });
-// window.addEventListener("message", (message) => {
-//   // console.log("sri-laksh", message.data); // Wayne is coming!!!
-//   webviewMessage = message.data;
-//   window.ReactNativeWebView.postMessage("Client received data");
-// });
 //VARIABLES
 const quoteContainerElement = document.getElementById("quote_container");
 const quoteTextElement = document.getElementById("quote");
@@ -16,7 +5,6 @@ const authorTextElement = document.getElementById("author");
 const twitterBtnElement = document.getElementById("twitter");
 const newQuoteBtnElement = document.getElementById("new_quote");
 const loaderElement = document.getElementById("loader");
-const lakshElement = document.getElementById("webview");
 
 let quotesList = [];
 // FUNCTIONS
@@ -70,15 +58,24 @@ function complete() {
   quoteContainerElement.hidden = false;
   loaderElement.hidden = true;
 }
+function getUrlParams(e) {
+  console.log("laksh-getUrlParams", e);
+}
 //  EVENT LISTENERS
 newQuoteBtnElement.addEventListener("click", makeQuote);
 twitterBtnElement.addEventListener("click", makeTweet);
-window.addEventListener("message", (message) => communication(message.data));
-// window.addEventListener("message", (message) => {
-//   webviewMessage = message.data;
-//   console.log(message.data); // Wayne is coming!!!
-// });
+window.addEventListener("hashchange", getUrlParams);
+window.onhashchange = function () {
+  alert("url changed!");
+};
 
 //ON LOAD
 // loading()
 getQuotes(); //generate quotes from online using api
+const url_string = window.location.href;
+console.log(url_string);
+// const url_string = "http://www.example.com/t.html?a=1&b=3&c=m2-m3-m4-m5";
+const url = new URL(url_string);
+const data = url.searchParams.get("data");
+console.log(typeof data);
+console.log(decodeURIComponent(data));
