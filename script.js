@@ -66,7 +66,9 @@ function getUrlParams(e) {
   const data = url.searchParams.get("data");
   console.log(typeof data);
   console.log(decodeURIComponent(data));
-  const { firstName } = decodeURIComponent(data);
+  const decoded = decodeURIComponent(data);
+  const { decodedData } = JSON.parse(decoded);
+  const { firstName } = decodedData;
   webviewElement.textContent = firstName;
 }
 //  EVENT LISTENERS
