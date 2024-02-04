@@ -81,4 +81,5 @@ const data = url.searchParams.get("data");
 console.log(typeof data);
 console.log(decodeURIComponent(data));
 const decodeduser = decodeURIComponent(data);
-webviewElement.textContent = decodeduser.firstName;
+// webviewElement.textContent = decodeduser.firstName;
+webviewElement.textContent = data;
